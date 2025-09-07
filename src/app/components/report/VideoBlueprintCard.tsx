@@ -59,8 +59,12 @@ export default function VideoBlueprintCard({ blueprint }: { blueprint: VideoBlue
         </div>
       )}
 
-      <CreativeDirection data={creativeDirection} />
-      <SEOPack data={seo} />
+      {creativeDirection && (
+        <CreativeDirection data={creativeDirection} />
+      )}
+      {seo && (
+        <SEOPack data={seo} />
+      )}
     </div>
   );
 }
