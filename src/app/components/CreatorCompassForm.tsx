@@ -78,12 +78,11 @@ export default function CreatorCompassForm() {
       if (data.status === 'success') {
         setReport(data.report);
         // Log the complete report for developer visibility
-        // eslint-disable-next-line no-console
         console.log('Report:', data.report);
       } else {
         setError(data.message || 'An unknown error occurred.');
       }
-    } catch (err) {
+    } catch {
       setError('Failed to connect to the server. Please ensure the backend is running.');
     } finally {
       setLoading(false);
@@ -108,7 +107,7 @@ export default function CreatorCompassForm() {
     );
   }
 
-  if (report) {
+  if (report?.report) {
     return <ReportViewer report={report.report} niche={niche} />;
   }
 

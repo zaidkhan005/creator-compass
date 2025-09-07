@@ -1,4 +1,3 @@
-import Image from "next/image";
 import CreatorCompassForm from "@/app/components/CreatorCompassForm";
 
 export default function Home() {
