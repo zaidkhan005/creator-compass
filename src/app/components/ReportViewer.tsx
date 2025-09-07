@@ -71,22 +71,22 @@ export default function ReportViewer({ report, niche }: ReportViewerProps) {
             )}
           </div>
 
-          <h2 className="text-2xl md:text-3xl font-display text-white mb-4">Audience Persona</h2>
+          <h2 className="text-2xl md:text-3xl font-display text-white mb-4">Target Audience Persona</h2>
           <div className="grid gap-4 mb-10">
             {report?.targetAudiencePersona && (
               <AudiencePersona data={report.targetAudiencePersona} />
             )}
           </div>
 
-          <h2 className="text-2xl md:text-3xl font-display text-white mb-4">Video Blueprints</h2>
+          <h2 className="text-2xl md:text-3xl font-display text-white mb-4">Actionable Video Blueprints</h2>
           <div className="grid gap-4 mb-10">
             {report?.videoBlueprints && (
               <VideoBlueprints data={report.videoBlueprints} />
             )}
           </div>
 
-          <h2 className="text-2xl md:text-3xl font-display text-white mb-4">Promotion Plan</h2>
-          <div className="grid gap-4">
+          <h2 className="text-2xl md:text-3xl font-display text-white mb-4">Amplification & Promotion Plan</h2>
+          <div className="grid gap-4 mb-10">
             {report?.promotionPlan && (
               <PromotionPlan data={report.promotionPlan} />
             )}
