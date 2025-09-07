@@ -6,7 +6,7 @@
       "use": "@vercel/next"
     },
     {
-      "src": "backend/app/main.py",
+      "src": "api/generate-report.py",
       "use": "@vercel/python",
       "config": {
         "maxLambdaSize": "50mb"
@@ -15,9 +15,9 @@
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "backend/app/main.py",
-      "methods": ["GET", "POST", "OPTIONS", "PUT", "DELETE"]
+      "src": "/api/generate-report",
+      "dest": "api/generate-report.py",
+      "methods": ["GET", "POST", "OPTIONS"]
     },
     {
       "handle": "filesystem"
