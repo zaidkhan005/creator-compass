@@ -25,6 +25,9 @@ origins = [
     # Production domains
     "https://creator-compass-delta.vercel.app",
     "https://creator-compass-328lgmqu4-zaidkhanji1-gmailcoms-projects.vercel.app",
+    "https://creator-compass-3zaf5m493-zaidkhanji1-gmailcoms-projects.vercel.app",
+    # Allow all Vercel preview domains for development
+    "https://*.vercel.app",
     # Local development
     "http://localhost",
     "http://127.0.0.1",
