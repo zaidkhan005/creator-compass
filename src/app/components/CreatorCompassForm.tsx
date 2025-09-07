@@ -22,13 +22,11 @@ type VideoBlueprint = {
 type PromotionPost = { platform?: string; content?: string; timing?: string };
 type PromotionPlanData = { socialPosts?: PromotionPost[] };
 type ReportData = {
-  report?: {
-    marketTrendAnalysis?: TrendAnalysisData;
-    strategicPosition?: StrategicPositionData;
-    targetAudiencePersona?: AudiencePersonaData;
-    videoBlueprints?: VideoBlueprint[];
-    promotionPlan?: PromotionPlanData;
-  };
+  marketTrendAnalysis?: TrendAnalysisData;
+  strategicPosition?: StrategicPositionData;
+  targetAudiencePersona?: AudiencePersonaData;
+  videoBlueprints?: VideoBlueprint[];
+  promotionPlan?: PromotionPlanData;
 };
 
 export default function CreatorCompassForm() {
@@ -107,8 +105,8 @@ export default function CreatorCompassForm() {
     );
   }
 
-  if (report?.report) {
-    return <ReportViewer report={report.report} niche={niche} />;
+  if (report) {
+    return <ReportViewer report={report} niche={niche} />;
   }
 
   if (error) {
