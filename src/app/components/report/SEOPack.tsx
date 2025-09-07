@@ -3,7 +3,13 @@
 import { useState } from 'react';
 import { FileText, Hash, Tag } from 'lucide-react';
 
-export default function SEOPack({ data }: { data: any }) {
+export interface SEOPackData {
+  description?: string;
+  tags?: string[];
+  hashtags?: string[];
+}
+
+export default function SEOPack({ data }: { data: SEOPackData }) {
   const [tab, setTab] = useState<'description'|'tags'|'hashtags'>('description');
   if (!data) return null;
   const { description, tags, hashtags } = data;

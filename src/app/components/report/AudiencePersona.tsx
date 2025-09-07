@@ -2,8 +2,18 @@
 
 import { User } from 'lucide-react';
 
+export interface AudiencePersonaData {
+  name?: string;
+  ageRange?: string;
+  demographics?: string;
+  interests?: string[];
+  painPoints?: string[];
+  goals?: string[];
+  summary?: string;
+}
+
 type AudiencePersonaProps = {
-  data: any;
+  data: AudiencePersonaData;
 };
 
 export default function AudiencePersona({ data }: AudiencePersonaProps) {

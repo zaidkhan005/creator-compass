@@ -7,7 +7,29 @@ import LoadingIndicator from "./LoadingIndicator";
 import ReportViewer from './ReportViewer';
 
 // Define a type for our report structure for TypeScript
-type ReportData = any; // We'll use 'any' for now for simplicity
+type TrendItem = { title?: string; description?: string; longevityScore?: number };
+type TrendAnalysisData = { trends?: TrendItem[] };
+type StrategicPositionData = { contentGap?: string; trendNicheFusion?: string };
+type AudiencePersonaData = { name?: string; ageRange?: string; demographics?: string; interests?: string[]; painPoints?: string[]; goals?: string[]; summary?: string };
+type VideoBlueprint = {
+  title?: string;
+  titleOptions?: string[];
+  hook?: string;
+  outline?: string[];
+  creativeDirection?: { style?: string; brollIdeas?: string[]; colorPalette?: string; pacing?: string; callToAction?: string };
+  seo?: { description?: string; tags?: string[]; hashtags?: string[] };
+};
+type PromotionPost = { platform?: string; content?: string; timing?: string };
+type PromotionPlanData = { socialPosts?: PromotionPost[] };
+type ReportData = {
+  report?: {
+    marketTrendAnalysis?: TrendAnalysisData;
+    strategicPosition?: StrategicPositionData;
+    targetAudiencePersona?: AudiencePersonaData;
+    videoBlueprints?: VideoBlueprint[];
+    promotionPlan?: PromotionPlanData;
+  };
+};
 
 export default function CreatorCompassForm() {
   const [niche, setNiche] = useState("");
@@ -87,7 +109,7 @@ export default function CreatorCompassForm() {
   }
 
   if (report) {
-    return <ReportViewer report={report} niche={niche} />;
+    return <ReportViewer report={report.report} niche={niche} />;
   }
 
   if (error) {

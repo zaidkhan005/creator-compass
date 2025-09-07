@@ -4,7 +4,22 @@ import { ListOrdered, Sparkles } from 'lucide-react';
 import CreativeDirection from './CreativeDirection';
 import SEOPack from './SEOPack';
 
-export default function VideoBlueprintCard({ blueprint }: { blueprint: any }) {
+export interface VideoBlueprint {
+  title?: string;
+  titleOptions?: string[];
+  hook?: string;
+  outline?: string[];
+  creativeDirection?: {
+    style?: string;
+    brollIdeas?: string[];
+    colorPalette?: string;
+    pacing?: string;
+    callToAction?: string;
+  };
+  seo?: { description?: string; tags?: string[]; hashtags?: string[] };
+}
+
+export default function VideoBlueprintCard({ blueprint }: { blueprint: VideoBlueprint }) {
   if (!blueprint) return null;
   const { titleOptions, hook, outline, creativeDirection, seo } = blueprint;
 

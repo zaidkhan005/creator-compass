@@ -2,8 +2,13 @@
 
 import { Lightbulb, Target } from 'lucide-react';
 
+export interface StrategicPositionData {
+  contentGap?: string;
+  trendNicheFusion?: string;
+}
+
 type StrategicPositionProps = {
-  data: any;
+  data: StrategicPositionData;
 };
 
 export default function StrategicPosition({ data }: StrategicPositionProps) {

@@ -2,8 +2,11 @@
 
 import { Flame } from 'lucide-react';
 
+export interface TrendItem { title?: string; description?: string; longevityScore?: number }
+export interface TrendAnalysisData { trends?: TrendItem[] }
+
 type TrendAnalysisProps = {
-  data: any;
+  data: TrendAnalysisData;
 };
 
 export default function TrendAnalysis({ data }: TrendAnalysisProps) {
@@ -11,7 +14,7 @@ export default function TrendAnalysis({ data }: TrendAnalysisProps) {
 
   return (
     <div className="grid gap-4">
-      {data.trends.map((trend: any, index: number) => (
+      {data.trends.map((trend: TrendItem, index: number) => (
         <div key={index} className="rounded-2xl border border-white/10 bg-white/5 p-4 sm:p-6">
           <div className="flex items-start justify-between gap-4">
             <div className="flex items-center gap-3">

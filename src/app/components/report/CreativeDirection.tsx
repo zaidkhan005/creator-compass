@@ -2,7 +2,15 @@
 
 import { Clapperboard } from 'lucide-react';
 
-export default function CreativeDirection({ data }: { data: any }) {
+export interface CreativeDirectionData {
+  style?: string;
+  brollIdeas?: string[];
+  colorPalette?: string;
+  pacing?: string;
+  callToAction?: string;
+}
+
+export default function CreativeDirection({ data }: { data: CreativeDirectionData }) {
   if (!data) return null;
   const { style, brollIdeas, colorPalette, pacing, callToAction } = data;
   return (

@@ -1,3 +1,41 @@
+# Creator Compass
+
+Production-ready setup guide
+
+## Environment variables (do not commit .env)
+
+Set these in Vercel Project Settings → Environment Variables:
+
+- GEMINI_API_KEY
+- GEMINI_MODEL (optional, defaults to gemini-1.5-pro)
+- YOUTUBE_API_KEY
+- ADMIN_PROMO_CODE
+- FRONTEND_URL (optional, set to your Vercel domain to tighten CORS)
+
+Local development can use a `.env` file, but it is ignored by git.
+
+## Deploying to Vercel
+
+1. Push this repo to GitHub.
+2. Create a new Vercel project and import the repo.
+3. Add the environment variables listed above.
+4. Deploy. Vercel uses `vercel.json` to build the Next.js app and run the FastAPI backend as a Python serverless function.
+
+## Frontend → Backend calls
+
+The frontend calls the backend via a relative path `/api/generate-report`, which Vercel routes to `backend/app/main.py` per `vercel.json`.
+
+## Error handling
+
+- Frontend shows a friendly error state with a Try Again button.
+- Backend validates inputs and surfaces clear messages for invalid promo code, missing API keys, and third-party API errors.
+
+## Accessibility and UX polish
+
+- Labels are associated with inputs via `htmlFor`/`id`.
+- Buttons include `aria-label`s where appropriate.
+- Transitions use `framer-motion` which is already listed in dependencies.
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
