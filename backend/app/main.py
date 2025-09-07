@@ -22,6 +22,9 @@ app = FastAPI()
 frontend_url = os.getenv("FRONTEND_URL")
 origins = [
     *( [frontend_url] if frontend_url else [] ),
+    # Production domains
+    "https://creator-compass-delta.vercel.app",
+    # Local development
     "http://localhost",
     "http://127.0.0.1",
     "http://localhost:3000",
