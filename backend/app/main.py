@@ -188,7 +188,7 @@ def read_root():
     return {"status": "Creator Compass Backend is running!"}
 
 
-@app.post("/api/generate-report")
+@app.post("/generate-report")
 async def generate_report(request: ReportRequest):
     # Get the secret admin code from our environment variables
     admin_code = os.getenv("ADMIN_PROMO_CODE")
