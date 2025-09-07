@@ -190,6 +190,14 @@ async def generate_ai_report(niche: str, region: str, competitor_data: list):
 def read_root():
     return {"status": "Creator Compass Backend is running!"}
 
+@app.get("/api/test")
+def test_endpoint():
+    return {"status": "API routing is working!", "message": "This endpoint is accessible"}
+
+@app.options("/api/generate-report")
+async def options_generate_report():
+    return {"status": "OK"}
+
 
 @app.post("/api/generate-report")
 async def generate_report(request: ReportRequest):
