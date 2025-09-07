@@ -15,6 +15,11 @@
   ],
   "routes": [
     {
+      "src": "/api/generate-report",
+      "dest": "backend/app/main.py",
+      "methods": ["GET", "POST", "OPTIONS"]
+    },
+    {
       "src": "/api/(.*)",
       "dest": "backend/app/main.py",
       "methods": ["GET", "POST", "OPTIONS"]
