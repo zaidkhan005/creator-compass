@@ -59,27 +59,37 @@ export default function ReportViewer({ report, niche }: ReportViewerProps) {
 
           <h2 className="text-2xl md:text-3xl font-display text-white mb-4">Market Trend Analysis</h2>
           <div className="grid gap-4 mb-10">
-            <TrendAnalysis data={report?.marketTrendAnalysis} />
+            {report?.marketTrendAnalysis && (
+              <TrendAnalysis data={report.marketTrendAnalysis} />
+            )}
           </div>
 
           <h2 className="text-2xl md:text-3xl font-display text-white mb-4">Strategic Position</h2>
           <div className="grid gap-4 mb-10">
-            <StrategicPosition data={report?.strategicPosition} />
+            {report?.strategicPosition && (
+              <StrategicPosition data={report.strategicPosition} />
+            )}
           </div>
 
           <h2 className="text-2xl md:text-3xl font-display text-white mb-4">Audience Persona</h2>
           <div className="grid gap-4 mb-10">
-            <AudiencePersona data={report?.targetAudiencePersona} />
+            {report?.targetAudiencePersona && (
+              <AudiencePersona data={report.targetAudiencePersona} />
+            )}
           </div>
 
           <h2 className="text-2xl md:text-3xl font-display text-white mb-4">Video Blueprints</h2>
           <div className="grid gap-4 mb-10">
-            <VideoBlueprints data={report?.videoBlueprints} />
+            {report?.videoBlueprints && (
+              <VideoBlueprints data={report.videoBlueprints} />
+            )}
           </div>
 
           <h2 className="text-2xl md:text-3xl font-display text-white mb-4">Promotion Plan</h2>
           <div className="grid gap-4">
-            <PromotionPlan data={report?.promotionPlan} />
+            {report?.promotionPlan && (
+              <PromotionPlan data={report.promotionPlan} />
+            )}
           </div>
         </motion.div>
       </div>
