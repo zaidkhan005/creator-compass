@@ -58,7 +58,9 @@ export default function CreatorCompassForm() {
     setReport(null);
 
     try {
-      const response = await fetch('/api/generate-report', {
+      const baseUrl = process.env.NEXT_PUBLIC_BACKEND_URL || '';
+      const endpoint = `${baseUrl}/api/generate-report`;
+      const response = await fetch(endpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -70,15 +72,18 @@ export default function CreatorCompassForm() {
           promoCode: promoCode,
         }),
       });
+      
+      // Attempt to parse JSON even on non-2xx, FastAPI includes details
+      const data = await response.json().catch(() => ({ status: 'error', message: 'Invalid server response.' }));
 
-      const data = await response.json();
-
-      if (data.status === 'success') {
+      if (response.ok && data.status === 'success') {
         setReport(data.report);
         // Log the complete report for developer visibility
         console.log('Report:', data.report);
       } else {
-        setError(data.message || 'An unknown error occurred.');
+        // Support FastAPI error shape {detail: {status, message}}
+        const apiMessage = data.message || data?.detail?.message || data?.detail || 'An unknown error occurred.';
+        setError(apiMessage);
       }
     } catch {
       setError('Failed to connect to the server. Please ensure the backend is running.');
