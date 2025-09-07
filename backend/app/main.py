@@ -24,6 +24,7 @@ origins = [
     *( [frontend_url] if frontend_url else [] ),
     # Production domains
     "https://creator-compass-delta.vercel.app",
+    "https://creator-compass-328lgmqu4-zaidkhanji1-gmailcoms-projects.vercel.app",
     # Local development
     "http://localhost",
     "http://127.0.0.1",
